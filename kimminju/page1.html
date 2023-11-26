@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Panorama1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
+    <link rel="stylesheet" href="NotoSerifKR/noto-serif-kr.css" />
+
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        #tv1 {
+            width: 800px;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+
+        #back {
+            font-size: 20px;
+            font-family: "Galmuri11";
+            color: yellow;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.1s;
+            margin-left: 400px;
+            margin-top: -430px;
+            position: fixed;
+        }
+
+        #back:hover {
+            color: rgb(255, 190, 69);
+        }
+
+        #back:active {
+            color: rgb(255, 72, 0);
+        }
+
+        .conversation {
+            padding-left: 55px;
+            padding-top: 60px;
+        }
+
+        #A1 {
+            font-family: "Galmuri11";
+            font-size: 22px;
+            color: rgb(255, 0, 242);
+            overflow: hidden; 
+            white-space: pre-line; 
+            line-height: 40px;
+            text-align: left;
+            position: absolute;
+            margin-top: 170px;
+            margin-left: 140px;
+        }
+
+        /* 선택지 */
+        #B1,
+        #B2 {
+            font-size: 19px;
+            font-family: "Galmuri11";
+            color: rgb(255, 0, 242);
+            display: flex; 
+            visibility: hidden;
+            padding: 6px;
+            padding-left: 20px;
+            padding-right: 10px;
+            text-align: center;
+            overflow: hidden; 
+            border: solid 1px rgb(255, 0, 242);
+            width: 210px;
+            cursor: pointer;
+            white-space: nowrap;
+            justify-content: center;
+        }
+        #B1 {
+            margin-top: 80px;
+        }
+
+    
+        #B1_1,
+        #B2_1 {
+            font-family: "Galmuri11";
+            font-size: 22px;
+            color: rgb(255, 0, 242);
+            overflow: hidden; 
+            white-space: pre-line; 
+            line-height: 30px;
+            text-align: left;
+            position: absolute;
+        }
+        #B1:hover,
+        #B2:hover {
+            background-color: rgb(255, 121, 248);
+            color: rgb(30, 30, 210);
+        }
+        #B1:active,
+        #B2:active {
+            color: rgb(30, 30, 210);
+        }
+
+        .B_ {
+            opacity: 1;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        #B3,
+        #B4,
+        #B5,
+        #B6 {
+            font-size: 20px;
+            font-family: "Galmuri11";
+            color: rgb(255, 0, 242);
+            display: flex; 
+            visibility:hidden;
+            padding: 6px;
+            padding-left: 20px;
+            padding-right: 16px;
+            overflow: hidden;
+            border: solid 1px rgb(255, 0, 242);
+            margin: 20px;
+        }
+        #B3:hover,
+        #B4:hover,
+        #B5:hover,
+        #B6:hover {
+            background-color: rgb(255, 121, 248);
+            color: rgb(30, 30, 210); 
+        }
+        #B3:hover,
+        #B4:hover,
+        #B5:hover,
+        #B6:hover {
+            color: rgb(30, 30, 210); 
+        }
+    </style>
+
+</head>
+
+<body>
+    <img id="tv1" src="/Users/kimminju/Desktop/tv1.png" alt="ani">
+    <a id="back" href="file:///Users/kimminju/Desktop/Mental%20Panorama.html">◀ back</a>
+
+    <div class="conversation">
+        <div id="A1"></div>
+        <div class="B_">
+            <p id="B1">유익합니다.</p>
+            <p id="B2">유익하지 않습니다.</p>
+        </div>
+        <p id="B1_1"></p>
+        <p id="B2_1"></p>
+
+        <p id="B3">그저 우연히 눈이 마주쳤던 것 아닐까?</p>
+        <p id="B4">눈빛이 어떻게 이상했는데?</p>
+
+        <p id="B5">그런거 아니야</p>
+        <p id="B6">그치만 누가 무슨 이유로 너를 감시하겠어</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var initialPosition = document.querySelector(".conversation").getBoundingClientRect();
+        
+        var adjustedTop = initialPosition.top - 90;
+        var adjustedLeft = initialPosition.left - 60;
+
+        // Set initial position for A1
+        document.getElementById("A1").style.top = adjustedTop + "px";
+        document.getElementById("A1").style.left = adjustedLeft + "px";
+
+        typewriter("A1", "이건 Trash-Talker 텔레비전에서 진행하는\n간단한 설문조사입니다.\n이 텔레비전은 유익한가요?", 50, function () {
+            // A1이 완전히 타이핑되면 B1과 B2 표시
+            document.querySelector(".B_").style.opacity = 1;
+            document.getElementById("B1").style.visibility = "visible";
+            document.getElementById("B2").style.visibility = "visible";
+        });
+    
+            // B1 클릭
+            document.getElementById("B1").addEventListener("click", function () {
+                // A1과 B1, B2 숨기고 B1_1 타이핑 시작
+                document.getElementById("A1").style.visibility = "hidden";
+                document.getElementById("B1").style.visibility = "hidden";
+                document.getElementById("B2").style.visibility = "hidden";
+                typewriter("B1_1", "어제만 해도 길을 가다가 17명과 눈이 마주쳤는데,\n모두 눈빛이 좀 이상했어.\n날 감시하고 있었던 게 분명해.", 50, function () {
+                    // B1_1이 완전 타이핑, B3, B4 표시
+                    document.getElementById("B3").style.visibility = "visible";
+                    document.getElementById("B4").style.visibility = "visible";
+                    document.getElementById("B3").style.top = adjustedTop + "px";
+                    document.getElementById("B3").style.left = adjustedLeft + "px";
+                    document.getElementById("B4").style.top = adjustedTop + "px";
+                    document.getElementById("B4").style.left = adjustedLeft + "px";
+                });
+            });
+    
+            // B2 클릭경우
+            document.getElementById("B2").addEventListener("click", function () {
+                // A1과 B1, B2 숨기고 B2_1 타이핑 시작
+                document.getElementById("A1").style.visibility = "hidden";
+                document.getElementById("B1").style.visibility = "hidden";
+                document.getElementById("B2").style.visibility = "hidden";
+                typewriter("B2_1", "지금 내가 예민하다는 거야...?\n결국 너도 날 정신병자 취급하는구나..", 50, function () {
+                    // B2_1 타이핑되면 B5, B6 표시
+                    document.getElementById("B5").style.visibility = "visible";
+                    document.getElementById("B6").style.visibility = "visible";
+                    document.getElementById("B5").style.top = adjustedTop + "px";
+                    document.getElementById("B5").style.left = adjustedLeft + "px";
+                    document.getElementById("B6").style.top = adjustedTop + "px";
+                    document.getElementById("B6").style.left = adjustedLeft + "px";
+                });
+            });
+    
+            // B3, B4 클릭!!!
+            document.getElementById("B3").addEventListener("click", function () {
+                document.getElementById("B3").style.visibility = "hidden";
+                document.getElementById("B4").style.visibility = "hidden";
+                document.getElementById("A1").style.visibility = "visible";
+                document.getElementById("A1").innerHTML = "너와 더 대화하고 싶지 않아";
+            });
+    
+            document.getElementById("B5").addEventListener("click", function () {
+                document.getElementById("B5").style.visibility = "hidden";
+                document.getElementById("B6").style.visibility = "hidden";
+                document.getElementById("A1").style.visibility = "visible";
+                document.getElementById("A1").innerHTML = "너와 더 대화하고 싶지 않아";
+            });
+        });
+    
+        function typewriter(elementId, text, speed, callback) {
+            var element = document.getElementById(elementId);
+            var index = 0;
+    
+            function type() {
+                element.innerHTML += text[index];
+                index++;
+    
+                if (index < text.length) {
+                    setTimeout(type, speed);
+                } else {
+                    if (typeof callback === "function") {
+                        callback();
+                    }
+                }
+            }
+    
+            type();
+        }
+    </script>
+</body>
+
+</html>
