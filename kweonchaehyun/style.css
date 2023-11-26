@@ -1,0 +1,445 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.map1{
+    position: fixed;
+    top: 0;
+    left: 3%;
+    width: 89%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.map2,.map3,.map4,.map5,.map6,.map7 {
+    position: fixed;
+    top: 0;
+    left: 3%;
+    width: 89%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.map1 img,.map2 img,.map3 img,.map4 img,.map5 img,.map6 img,.map7 img  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.top-image {
+    position: absolute;
+    top: 2.5%;
+    left: 1.5%;
+    width: 18%;
+    height: auto;
+}
+
+
+
+.explain{
+    position: fixed;
+    bottom: 4%; 
+    right: 3%;
+    font-size: 15px;
+    line-height: 1.65;
+    color: black; 
+
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: space-between; 
+    position: relative;
+    z-index: 5;
+}
+
+.image-container img:nth-of-type(1) {
+    max-width: 12%; 
+    position: absolute;
+    top: 25vh;
+    left: 62vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(2) {
+    max-width: 10%; 
+    position: absolute;
+    top: 11.5vh;
+    left: 59vw;
+    transform: translate(-50%, -50%);
+}
+.image-container img:nth-of-type(3) {
+    max-width: 17%; 
+    position: absolute;
+    top: 79.3vh;
+    left: 52.5vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(4) {
+    max-width: 18%; 
+    position: absolute;
+    top: 91vh;
+    left: 57vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(5) {
+    max-width: 17%; 
+    position: absolute;
+    top: 84vh;
+    left: 36vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(6) {
+    max-width: 20%; 
+    position: absolute;
+    top: 41vh;
+    left: 35vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(7) {
+    max-width: 7%; 
+    position: absolute;
+    top: 34vh;
+    left: 38vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(8) {
+    max-width: 12%; 
+    position: absolute;
+    top: 38vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(9) {
+    max-width: 22%; 
+    position: absolute;
+    top: 43vh;
+    left: 67.3vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(10) {
+    max-width: 22%; 
+    position: absolute;
+    top: 65vh;
+    left: 62vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(11) {
+    max-width: 19%; 
+    position: absolute;
+    top: 32.5vh;
+    left: 64.8vw;
+    transform: translate(-50%, -50%);
+}
+.image-container img:nth-of-type(12) {
+    max-width: 28%; 
+    position: absolute;
+    top: 52.4vh;
+    left: 45vw;
+    transform: translate(-50%, -50%);
+}
+
+.image-container img:nth-of-type(13) {
+    max-width: 14%; 
+    position: absolute;
+    top: 62.5vh;
+    left: 45vw;
+    transform: translate(-50%, -50%);
+}
+.image-container img:nth-of-type(14) {
+    max-width: 18%; 
+    position: absolute;
+    top: 70vh;
+    left: 40vw;
+    transform: translate(-50%, -50%);
+}
+.image-container img:nth-of-type(15) {
+    max-width: 10%; 
+    position: absolute;
+    top: 15vh;
+    left: 47vw;
+    transform: translate(-50%, -50%);
+}
+.image-container img:nth-of-type(16) {
+    max-width: 14%; 
+    position: absolute;
+    top: 24vh;
+    left: 44vw;
+    transform: translate(-50%, -50%);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 7;
+}
+
+  .popup-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    max-width: 700px;
+    height: auto;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.popup-image {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1.4vh;
+    right: 1.2vw;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    display: flex;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.right {
+    width: 9cm;
+    padding: 10px;
+    margin-right: 0px;
+
+}
+
+.left{
+    width: 2cm;
+    padding: 10px;
+    margin-right: 0px;
+    position: relative;
+}
+
+.left::after {
+    content: '';
+    position: absolute;
+    top: 10PX;
+    right: 10px;
+    height: 90%;
+    width: 1.2px;
+    background-color: black; 
+}
+
+.custom-button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    border-radius: 6px;
+    z-index: 6;
+}
+
+
+#button1 {
+    position: absolute;
+    top: 62%;
+    left: 51.2%;
+}
+
+#button1:hover {
+    background-color:  #9718ff;
+    color: white;
+}
+
+  
+#button2 {
+    position: absolute;
+    top: 3.5%;
+    left: 53.5%; 
+}
+#button2:hover {
+    background-color: ff00b2;
+    color: white;
+}
+
+ 
+#button3 {
+    position: absolute;
+    top: 19%; 
+    left: 55%;
+}
+#button3:hover {
+    background-color: ff00b2;
+    color: white; 
+}
+
+
+#button4 {
+    position: absolute;
+    top: 41.6%; 
+    left: 57%;
+}
+#button4:hover {
+    background-color:  rgb(151, 24, 255);
+    color: white;
+}
+  
+#button5 {
+    position: absolute;
+    top: 47.4%;
+    left: 32.3%; 
+}
+#button5:hover {
+    background-color: 2cd0ff;
+}
+ 
+#button6 {
+    position: absolute;
+    top: 64.5%; 
+    left: 31.7%;
+}
+#button6:hover {
+    background-color: 2cd0ff;
+}
+ 
+
+#button7 {
+    position: absolute;
+    top: 32.2%; 
+    left: 43.2%;
+}
+#button7:hover {
+    background-color: 23ff1d;
+}
+  
+#button8 {
+    position: absolute;
+    top: 9.8%;
+    left: 40.5%; 
+}
+#button8:hover {
+    background-color: black;
+    color: white;
+}
+ 
+#button9 {
+    position: absolute;
+    top: 28.5%; 
+    left: 32.2%;
+}
+#button9:hover {
+    background-color: 23ff1d;
+}
+
+#button10 {
+    position: absolute;
+    top: 77%; 
+    left: 29%;
+}
+#button10:hover {
+    background-color: ffe539;
+}
+
+#button11 {
+    position: absolute;
+    top: 56%; 
+    left: 39.5%;
+}
+#button11:hover {
+    background-color: 2cd0ff;
+}
+ 
+
+#button12 {
+    position: absolute;
+    top: 32.5%; 
+    left: 23.5%;
+}
+#button12:hover {
+    background-color: 23ff1d;
+}
+   
+#button13 {
+    position: absolute;
+    top: 86%; 
+    left: 48.5%;
+}
+#button13:hover {
+    background-color: ffe539;
+}
+ 
+
+   
+#button14 {
+    position: absolute;
+    top: 30%; 
+    left: 55%;
+}
+#button14:hover {
+    background-color:  rgb(151, 24, 255);
+    color: white;
+}
+
+#button15 {
+    position: absolute;
+    top: 18%; 
+    left: 36.3%;
+}
+#button15:hover {
+    background-color: black;
+    color: white;
+}
+   
+#button16 {
+    position: absolute;
+    top: 74.6%; 
+    left: 45%;
+}
+#button16:hover {
+    background-color: ffe539;
+}
